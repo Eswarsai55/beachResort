@@ -8,13 +8,19 @@ import React from 'react';
 
  import { Route, Switch } from 'react-router-dom';
 
+ import Navbar from './components/Navbar';
+
 
 function App() {
   return (
     <div className="App">
-      <Route exact path='/' component={Home}/>
-      <Route exact path='/rooms' component={Rooms}/>
-      <Route exact path='/rooms/:slug' component={SingleRoom}/>{/*Route parameters to setup we need : */}
+      <Navbar/>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/rooms' component={Rooms}/>
+        <Route exact path='/rooms/:slug' component={SingleRoom}/>{/*Route parameters to setup we need : */}
+        <Route component={Error}/>
+      </Switch>
     </div>
   );
 }
